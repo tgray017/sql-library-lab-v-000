@@ -17,10 +17,10 @@ INSERT INTO characters (name, motto, species, author_id, series_id) VALUES
   ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
   ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
   ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1)
+  ("Harry Potter", "I love magic", "human", 2, 2),
+  ("Harry Potter", "I love magic", "human", 2, 2),
+  ("Harry Potter", "I love magic", "human", 2, 2),
+  ("Harry Potter", "I love magic", "human", 2, 2)
 ;
 
 INSERT INTO subgenres (name) VALUES 
@@ -34,7 +34,7 @@ INSERT INTO authors (name) VALUES
 ;
 
 INSERT INTO character_books (character_id, book_id)
-  SELECT
+  SELECT DISTINCT
     c.id,
     b.id
   FROM
