@@ -32,3 +32,15 @@ INSERT INTO authors (name) VALUES
   ("George R.R. Martin"),
   ("J.K. Rowling")
 ;
+
+INSERT INTO character_books (character_id, book_id)
+  SELECT
+    c.id,
+    b.id
+  FROM
+    characters c
+    JOIN series s on c.series_id = s.id
+    JOIN books b on s.id = b.series_id
+  WHERE
+    c.id > -1
+;
