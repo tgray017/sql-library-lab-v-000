@@ -1,5 +1,16 @@
 def select_books_titles_and_years_in_first_series_order_by_year
-  "Write your SQL query here"
+  "
+  SELECT
+    b.title,
+    b.year
+  FROM
+    books b
+    JOIN series s on b.series_id = s.id
+  WHERE
+    s.id = (SELECT MIN(id) FROM series)
+  ORDER BY
+    b.year ASC;
+  "
 end
 
 def select_name_and_motto_of_char_with_longest_motto
