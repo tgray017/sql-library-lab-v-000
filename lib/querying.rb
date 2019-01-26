@@ -35,7 +35,8 @@ def select_value_and_count_of_most_prolific_species
     characters
   GROUP BY
     species
-  ORDER BY count DESC
+  ORDER BY 
+    count DESC
   LIMIT 1;
   "
 end
