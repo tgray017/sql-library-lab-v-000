@@ -55,19 +55,20 @@ end
 
 def select_series_title_with_most_human_characters
   "
-  SELECT
-    s.title,
-    count(*) as count
-  FROM
-    series s
-    JOIN characters c on s.id = c.series_id
-  WHERE
-    c.species = 'human'
-  GROUP BY
-    s.title
-  ORDER BY
-    count DESC
-  LIMIT 1;
+  SELECT title FROM (
+    SELECT
+      s.title,
+      count(*) as count
+    FROM
+      series s
+      JOIN characters c on s.id = c.series_id
+    WHERE
+      c.species = 'human'
+    GROUP BY
+      s.title
+    ORDER BY
+      count DESC
+    LIMIT 1);
   "
 end
 
