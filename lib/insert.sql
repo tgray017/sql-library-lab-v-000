@@ -14,13 +14,13 @@ INSERT INTO books (title, year, series_id) VALUES
 
 INSERT INTO characters (name, motto, species, author_id, series_id) VALUES 
   ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
-  ("Tyrion Lannister", "A Lannister always pays his debts", "human", 1, 1),
+  ("Tywin Lannister", "A Lannister always pays his debts", "human", 1, 1),
+  ("Cersei Lannister", "A Lannister always pays his debts", "human", 1, NULL),
+  ("Jaime Lannister", "A Lannister always pays his debts", "human", 1, NULL),
   ("Harry Potter", "I love magic", "human", 2, 2),
-  ("Harry Potter", "I love magic", "human", 2, 2),
-  ("Harry Potter", "I love magic", "human", 2, 2),
-  ("Harry Potter", "I love magic", "human", 2, 2)
+  ("Hermione Granger", "I love magic", "human", 2, 2),
+  ("Ron Weasley", "I love magic", "human", 2, NULL),
+  ("Draco Malfoy", "I love magic", "human", 2, NULL)
 ;
 
 INSERT INTO subgenres (name) VALUES 
@@ -39,6 +39,6 @@ INSERT INTO character_books (book_id, character_id)
     c.id
   FROM
     characters c
-    JOIN series s on c.series_id = s.id
-    JOIN books b on s.id = b.series_id
+    LEFT JOIN series s on c.series_id = s.id
+    LEFT JOIN books b on s.id = b.series_id
 ;
