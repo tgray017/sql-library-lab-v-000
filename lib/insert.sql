@@ -33,14 +33,12 @@ INSERT INTO authors (name) VALUES
   ("J.K. Rowling")
 ;
 
-INSERT INTO character_books (character_id, book_id)
+INSERT INTO character_books (book_id, character_id)
   SELECT DISTINCT
-    c.id,
-    b.id
+    b.id,
+    c.id
   FROM
     characters c
     JOIN series s on c.series_id = s.id
     JOIN books b on s.id = b.series_id
-  WHERE
-    c.id > -1
 ;
